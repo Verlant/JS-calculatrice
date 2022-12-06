@@ -1,5 +1,5 @@
 // let input_affiche = document.getElementsByName("affiche");
-let input_affiche = document.Calculette.affiche;
+const input_affiche = document.Calculette.affiche;
 let left_member;
 let right_member;
 let operator;
@@ -7,24 +7,34 @@ let result;
 
 input_affiche.setAttribute("value", "");
 
-// fonction ajouter
+//
+/**
+ * fonction ajouter qui ajoute un nombre ou un point dans l'input de la calculatrice
+ * @param {string} str
+ */
 function ajouter(str) {
-  if (input_affiche.value == undefined || isNaN(Number(input_affiche.value))) {
+  if (input_affiche.value == undefined) {
     input_affiche.value = str;
   } else {
     input_affiche.value += str;
   }
-  // input_affiche.value += str;
 }
 
-//fonction operation
+//
+/**
+ * fonction operation qui insere le signe operant dans l'input de la calculatrice
+ * @param {string} signe
+ */
 function operation(signe) {
-  left_member = Number(input_affiche.value);
+  // left_member = Number(input_affiche.value);
   operator = signe;
   input_affiche.value += signe;
 }
 
-//fonctions effectuant des operations speciales (via des methodes intégrées à javascript)
+/**
+ * fonctions effectuant des operations speciales (via des methodes intégrées à javascript)
+ * @param {string} opespeciale
+ */
 function fonctionSpeciale(opespeciale) {
   switch (opespeciale) {
     case "sqrt":
@@ -46,9 +56,15 @@ function fonctionSpeciale(opespeciale) {
   }
 }
 
-//fonction de resultat
+/**
+ * fonction de resultat
+ * @returns string
+ */
 function resultat() {
-  right_member = Number(input_affiche.value);
+  // right_member = Number(input_affiche.value);
+  let members_arr = input_affiche.value.split(operator);
+  left_member = Number(members_arr[0]);
+  right_member = Number(members_arr[1]);
   if (right_member == undefined || left_member == undefined) {
     return "";
   }
@@ -80,6 +96,9 @@ function resultat() {
   // }
 }
 
+/**
+ * fonction qui place une string vide dans chaque variable globale
+ */
 function reset_calculatrice() {
   left_member = "";
   right_member = "";
