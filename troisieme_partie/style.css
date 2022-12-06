@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vmin;
+  width: 100vmax;
+}
+form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+table {
+  margin: 0 auto;
+  height: 80%;
+}
+td[type="button"] {
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+}
+input {
+  height: 100%;
+  width: 100%;
+}
